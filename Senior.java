@@ -26,13 +26,36 @@ details[i].length == 15
 details[i] consists of digits from '0' to '9'.
 details[i][10] is either 'M' or 'F' or 'O'.
 The phone numbers and seat numbers of the passengers are distinct.
+https://leetcode.com/problems/number-of-senior-citizens/editorial/?envType=daily-question&envId=2024-08-01
 */
 
 public class Senior {
-	public static void main(String[] args){
-	String[] ticketDetails = ["7868190130M7522","5303914400F9211","9273338290F4010"];
 
-	if
+  public static int countSeniorCitizens(String[] tickets){
+    
+    int count = 0;
 
-}
+    for(String ticket: tickets){
+      String num = ticket.charAt(11) + "" + ticket.charAt(12);
+      int age = Integer.parseInt(num);  
+      if(age > 60){
+	count++;
+      }
+    }
+
+    return count;
+  }
+    
+    public static void main(String[] args){
+      String[] ticketDetails = new String[]{"7868190130M7522","5303914400F9211","9273338290F4010"};
+      String[] details = new String[]{"1313579440F2036","2921522980M5644"};
+
+      if(countSeniorCitizens(ticketDetails) == 2){
+	 System.out.println("Test Passed");
+      }
+
+      if(countSeniorCitizens(details) == 0){
+	 System.out.println("Test Passed 2");
+      }
+  }
 }
